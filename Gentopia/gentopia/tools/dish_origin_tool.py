@@ -12,26 +12,25 @@ class DishOriginTool(BaseTool):
 
     args_schema: Optional[Type[BaseModel]] = DishOriginParameters
 
-    # Spoonacular API URL and key (you need to add your API key here)
     SPOONACULAR_API_URL = "https://api.spoonacular.com/recipes/complexSearch"
-    SPOONACULAR_API_KEY = "7ae86da940954fe4a740602f011ba899"  # Replace with your actual API key
+    SPOONACULAR_API_KEY = "your_spoonacular_api_key"  # Replace API key
 
     def _run(self, dish_name: str) -> str:
-        # Call Spoonacular API to search for the dish
+        
         params = {
             "query": dish_name,
-            "number": 1,  # Limit to 1 result
+            "number": 1,  
             "apiKey": self.SPOONACULAR_API_KEY
         }
 
         try:
             response = requests.get(self.SPOONACULAR_API_URL, params=params)
-            response.raise_for_status()  # Raise error if the request fails
+            response.raise_for_status()  
             data = response.json()
 
             if data.get("results"):
                 dish_info = data["results"][0]
-                cuisine = dish_info.get("cuisines", ["Unknown"])[0]  # Get the first cuisine type
+                cuisine = dish_info.get("cuisines", ["Unknown"])[0]  
                 return f"The origin (or cuisine) of {dish_name} is: {cuisine}"
             else:
                 return f"Sorry, I could not find the origin of {dish_name}."
@@ -43,7 +42,7 @@ class DishOriginTool(BaseTool):
         raise NotImplementedError("Asynchronous execution not implemented.")
     
 if __name__ == "__main__":
-    # Example use of the tool
+    
     origin_params = DishOriginParameters(
         dish_name="pasta"
     )

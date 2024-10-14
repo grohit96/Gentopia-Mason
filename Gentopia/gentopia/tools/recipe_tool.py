@@ -12,8 +12,7 @@ class RecipeTool(BaseTool):
     args_schema: Optional[Type[BaseModel]] = RecipeParameters
 
     def _run(self, ingredients: List[str]) -> str:
-        # Simple example logic: Combine ingredients into a mock recipe
-        # In practice, you could connect to an API or a trained model
+        
         recipe = f"Here is a simple recipe using: {', '.join(ingredients)}."
         recipe += "\n1. Mix all the ingredients.\n2. Cook over medium heat for 30 minutes."
         recipe += "\n3. Serve hot. Enjoy your meal!"
@@ -23,7 +22,7 @@ class RecipeTool(BaseTool):
         raise NotImplementedError("Asynchronous execution not implemented.")
     
 if __name__ == "__main__":
-    # Example use of the tool
+    
     recipe_params = RecipeParameters(
         ingredients=["tomato", "onion", "garlic"]
     )
