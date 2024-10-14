@@ -5,7 +5,6 @@ class RecipeParameters(BaseModel):
     ingredients: List[str] = Field(..., description="List of ingredients to use for the recipe")
 
 class RecipeTool(BaseTool):
-    """Tool for generating recipes from provided ingredients."""
     name = "recipe_tool"
     description = "A tool that generates a recipe based on the provided ingredients."
 

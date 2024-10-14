@@ -6,7 +6,6 @@ class DishOriginParameters(BaseModel):
     dish_name: str = Field(..., description="Name of the dish to find its origin")
 
 class DishOriginTool(BaseTool):
-    """Tool for identifying the origin of a dish using Spoonacular API."""
     name = "dish_origin_tool"
     description = "A tool that identifies the origin of a dish based on its name using Spoonacular API."
 
