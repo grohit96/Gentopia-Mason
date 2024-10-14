@@ -9,3 +9,15 @@ from .vanilla_template import *
 from .openai_memory_template import *
 from .vanilla-ziyu import *
 from .scholar-ziyu import *
+from .HW2_vanilla_agent import *
+from .HW2_scholar_agent import *
+from .HW2_Gscholar_agent import *
+from .HW2_rf_agent import *
+from .HW2_rf2_agent import *
+from .HW2_rf3_agent import *
+from .HW2_rf4_agent import *
+from .HW2_rf5_agent import *
+from .HW2_rf6_agent import *
+from .HW2_rf_agent import *
+from .HW2_rf_agent import *
+from .rf_test import *

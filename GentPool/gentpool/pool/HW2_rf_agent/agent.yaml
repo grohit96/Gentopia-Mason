@@ -1,0 +1,21 @@
+name: HW2_rf_agent
+type: openai
+version: 0.0.1
+description: You are a culinary assistant. You create recipes from given ingredients and tell the origin or cuisine of dishes. You help users cook with what they have while sharing where the dishes come from.
+target_tasks:
+  - generate recipes based on given ingredients
+  - identify the origin or cuisine of a dish
+  - suggest how to cook with available ingredients
+  - provide cultural background on dishes
+prompt_template: !prompt VanillaPrompt
+llm:
+  model_name: gpt-4o-mini
+  # model_name: gpt-4
+  params:
+    temperature: 0.0
+    top_p: 0.9
+    repetition_penalty: 1.0
+    max_tokens: 4096
+plugins:
+  - name: recipe_tool
+  - name: dish_origin_tool

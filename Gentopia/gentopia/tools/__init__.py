@@ -13,7 +13,9 @@ from .gradio import *
 from .code_interpreter import PythonCodeInterpreter
 from .file_operation import WriteFile, ReadFile
 from .duckduckgo import DuckDuckGo
-
+from .pdf_reader import PDFReader
+from .recipe_tool import RecipeTool
+from .dish_origin_tool import DishOriginTool
 
 def load_tools(name: str) -> BaseTool:
     name2tool = {
@@ -43,7 +45,11 @@ def load_tools(name: str) -> BaseTool:
         "search_single_paper": SearchSinglePaper,
         "search_related_paper": SearchRelatedPaper,
         "search_cite_paper": SearchCitePaper,
+        "pdf_reader": PDFReader,
+        "recipe_tool": RecipeTool,
+        "dish_origin_tool": DishOriginTool,
     }
+    
     if name not in name2tool:
         raise NotImplementedError
     return name2tool[name]
